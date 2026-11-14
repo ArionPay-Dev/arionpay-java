@@ -186,6 +186,17 @@ ARIONPAY_IT_WEBHOOK_SECRET=whsec_... mvn test -Dtest=IntegrationTest
 mvn -P release package      # jar + sources + javadoc, as Maven Central wants
 ```
 
+## Signed releases
+
+Every file on Maven Central is signed with the ArionPay release key:
+
+```
+ArionPay Release Signing <info@arionpay.com>
+Fingerprint: 09EC 9538 884D F202 26FA  CBCB 78D2 CA7A E1A2 EB28
+```
+
+The public key is in [`ARIONPAY-SIGNING-KEY.asc`](ARIONPAY-SIGNING-KEY.asc) and on keyserver.ubuntu.com and keys.openpgp.org. To check a download: `gpg --import ARIONPAY-SIGNING-KEY.asc && gpg --verify arionpay-java-1.0.0.jar.asc arionpay-java-1.0.0.jar`.
+
 ## License
 
 MIT
